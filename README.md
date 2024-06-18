@@ -14,7 +14,7 @@ A simple task manager application that allows you to create, edit, and delete ta
 
 1. **Clone the repository**
     ```sh
-    git clone https://github.com/yourusername/task-manager-app.git
+    git clone https://github.com/Ghulam-Muhammad-Ahmad/Task-Manager.git
     cd task-manager-app
     ```
 
@@ -60,6 +60,7 @@ All your data is stored in the browser's local storage, meaning it will persist 
 4. Push to the branch (`git push origin feature/YourFeature`).
 5. Open a pull request.
 
+
 ## Acknowledgements
 
 - Inspired by various task management tools.
@@ -68,4 +69,3 @@ All your data is stored in the browser's local storage, meaning it will persist 
 ## Contact
 
 For any inquiries or feedback, please contact [gulammuhammadahmad216@gmail.com](mailto:gulammuhammadahmad216@gmail.com) or visit my [personal website](https://ahmadinfo.freewebhostmost.com/).
-
