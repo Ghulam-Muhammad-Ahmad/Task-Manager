@@ -39,13 +39,13 @@ function edittask(id){
   settaskdesc(editTask.desc);
   settaskStatus(editTask.status);
   settaskerror(editTask.error);
-  setupdateid(editTask.id)
+  setupdateid(id)
   // console.log(editTask)
 }
 function updateTask(title,id,desc,cat,status){
   const storedTasks = JSON.parse(localStorage.getItem('toDo_tasks')) || [];
   const tasks = storedTasks.flat();
-  const taskIndex = tasks.findIndex(task => task.id === id);
+  const taskIndex = id;
   console.log(taskIndex)
   const today = new Date();
 let currentDate = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
@@ -71,7 +71,7 @@ function deleteTask(id) {
   const delete_storedTasks = JSON.parse(localStorage.getItem('toDo_tasks')) || [];
   const delete_tasks = delete_storedTasks; // Assuming tasks are not nested arrays
 
-  const delete_taskIndex = delete_tasks[id];
+  const delete_taskIndex = id;
   console.log(delete_taskIndex);
   if (delete_taskIndex !== -1) {
     delete_tasks.splice(delete_taskIndex, 1); // Remove 1 element at index taskIndex
