@@ -10,6 +10,8 @@ export default function Operations(props) {
   const [taskStatus, settaskStatus] = useState("");
   const [taskstate, settaskstate] = useState(false);
   const [updateid, setupdateid] = useState(null);
+  const [taskNum, settaskNum] = useState(0);
+
 
 
   const [tasks, settasks] = useState(() => {
@@ -19,6 +21,8 @@ export default function Operations(props) {
 
   useEffect(() => {
       localStorage.setItem('toDo_tasks', JSON.stringify(tasks));
+      const storedTaks = JSON.parse(localStorage.getItem('toDo_tasks'));
+settaskNum(storedTaks.length);
   }, [tasks]);
 
 function AddTask(title,desc,cat,status){
@@ -87,7 +91,6 @@ function deleteTask(id) {
 
 
 
-
   return (
 
     <div className='operations w-full  rounded-lg '>
@@ -96,7 +99,7 @@ function deleteTask(id) {
       <Addtasks cats={props.cats} addTask={AddTask} taskstate={taskstate} settitle={settitle} settaskCat={settaskCat} settaskStatus={settaskStatus} settaskdesc={settaskdesc} updateTask={updateTask} settaskerror={settaskerror} updateid={updateid}  taskCat={taskCat} title={title} taskStatus={taskStatus} taskdesc={taskdesc} taskerror={taskerror} />
       </div>
       <div className="viewtasking p-5 rounded-lg m-3 bg-[#F4F4F4] dark:bg-gray-800">
-      <Viewtasks tasks={tasks} edittask={edittask} deleteTask={deleteTask} />
+      <Viewtasks tasks={tasks} taskNum={taskNum} settasks={settasks} edittask={edittask} deleteTask={deleteTask} />
       </div>
     </div>
 
