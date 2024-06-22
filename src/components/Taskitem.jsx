@@ -1,28 +1,28 @@
 import React, { useState, useEffect } from 'react';
 
 export default function TaskItem(props) {
-    const [urlTitle, setUrlTitle] = useState('');
+    // const [urlTitle, setUrlTitle] = useState('');
 
-    useEffect(() => {
-        // Instead of get-title-at-url, use fetch or any other method to get the title
-        async function fetchTitle() {
-            try {
-                const response = await fetch(props.url);
-                const text = await response.text();
-                const titleMatch = text.match(/<title>([^<]*)<\/title>/);
-                if (titleMatch) {
-                    setUrlTitle(titleMatch[1]);
-                } else {
-                    setUrlTitle('No title found');
-                }
-            } catch (error) {
-                setUrlTitle('Error fetching title');
-            }
-        }
-        if(props.url !== ''){
-            fetchTitle();
-        }
-    }, [props.url]);
+    // useEffect(() => {
+    //     // Instead of get-title-at-url, use fetch or any other method to get the title
+    //     async function fetchTitle() {
+    //         try {
+    //             const response = await fetch(props.url);
+    //             const text = await response.text();
+    //             const titleMatch = text.match(/<title>([^<]*)<\/title>/);
+    //             if (titleMatch) {
+    //                 setUrlTitle(titleMatch[1]);
+    //             } else {
+    //                 setUrlTitle('No title found');
+    //             }
+    //         } catch (error) {
+    //             setUrlTitle('Error fetching title');
+    //         }
+    //     }
+    //     if(props.url !== ''){
+    //         fetchTitle();
+    //     }
+    // }, [props.url]);
 
     return (
         <div className={`task max-w-min p-3 dark:text-white bg-slate-200 task_${props.id} dark:bg-gray-800 border rounded-md border-2`}>
@@ -47,14 +47,16 @@ export default function TaskItem(props) {
                 {props.desc}
             </div>
             {
-                props.url !== undefined || props.url !== ""  &&
-                <div className="body pb-2 flex gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" />
-                </svg>
-                {urlTitle}
-            </div>
+                (props.url !== undefined && props.url !== "") ? (
+                    <a href={props.url} className="body pb-2 flex gap-2" target='_blank'>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" />
+                        </svg>
+                        {props.url}
+                    </a>
+                ) : null
             }
+
 
             <div className="status flex gap-1">
                 <div className="stat p-2 text-white rounded-md font-medium capitalize bg-[#3763d2]">{props.currentDate}</div>
