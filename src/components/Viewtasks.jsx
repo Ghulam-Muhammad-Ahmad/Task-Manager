@@ -38,6 +38,7 @@ export default function Viewtasks(props) {
                             title={task.title}
                             desc={task.desc}
                             cat={task.cat}
+                            url={task.url}
                             status={task.status}
                             currentDate={task.currentDate}
                             deleteTask={props.deleteTask}

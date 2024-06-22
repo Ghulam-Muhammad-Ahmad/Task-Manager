@@ -33,38 +33,51 @@ export default function Addtasks(props) {
                 <textarea name="task_desc" id='task_desc' placeholder='Enter Task Description' className='bg-transparent h-44 dark:text-white border border-2 border-gray-200 rounded-md p-2 w-full md:w-2/5' value={props.taskdesc} onChange={(e) => props.settaskdesc(e.target.value)}>
                 </textarea>
 
+
+                <label htmlFor="task_url" className='dark:text-white bg-transparent border border-2 border-gray-200 rounded-md p-2 w-full md:w-2/5'>
+                    <input type="text"
+                        placeholder='Enter Task Url'
+                        className='bg-transparent focus:outline-none dark:text-white text-gray-600 w-full'
+                        name='task_url '
+                        onChange={(e) => props.settitleurl(e.target.value)}
+                        value={props.titleurl}
+                        id='task_url' />
+                </label>
+
+
+
                 <div className="button md:w-2/5 w-full flex flex-col justify-start items-start">
                     <span className='text-red-600 text-sm font-bold'>
                         {props.taskerror}
                     </span>
                     <button
-                        onClick={() => {
-                            if (props.taskstate) { 
-                                if (props.title && props.taskdesc && props.taskCat && props.taskStatus) {
-                                    props.updateTask(props.title, props.updateid, props.taskdesc, props.taskCat, props.taskStatus);
-                                    props.settitle("");
-                                    props.settaskdesc("");
-                                    props.settaskCat("");
-                                    props.settaskStatus("");
-                                    props.settaskerror("");
-
-                                } else {
-                                    props.settaskerror("Please fill all the fields");
-                                }  
-                            } else {
-                                if (props.title && props.taskdesc && props.taskCat && props.taskStatus) {
-                                    props.addTask(props.title, props.taskdesc, props.taskCat, props.taskStatus);
-                                    props.settitle("");
+                       onClick={() => {
+                        const allFieldsFilled = props.title && props.taskdesc && props.taskCat && props.taskStatus;
+                    
+                        if (!allFieldsFilled) {
+                            props.settaskerror("Please fill all the fields");
+                            return;
+                        }
+                    
+                        if ((props.titleurl && !props.isValidUrl(props.titleurl))) {
+                            props.settaskerror("Please provide a valid URL");
+                            return;
+                        }
+                    
+                        if (props.taskstate) {
+                            props.updateTask(props.title, props.updateid, props.taskdesc, props.taskCat, props.taskStatus, props.titleurl);
+                        } else {
+                            props.addTask(props.title, props.taskdesc, props.taskCat, props.taskStatus, props.titleurl);
+                        }
+                    
+                        props.settitle("");
                                     props.settaskdesc("");
                                     props.settaskCat("");
                                     props.settaskStatus("");
                                     props.settaskerror("")
-
-                                } else {
-                                    props.settaskerror("Please fill all the fields");
-                                }
-                            }
-                        }}
+                                    props.settitleurl("");
+                    }}
+                    
                         type='button'
                         className='bg-[#3763d2] dark:bg-white dark:text-black text-white border border-2 border-gray-200 rounded-md p-2 w-full md:w-2/5'
                     >
