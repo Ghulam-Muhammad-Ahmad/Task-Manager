@@ -20,7 +20,7 @@ export default function Existcat(props) {
     return (
         <>
             <h3 className='uppercase text-sm font-semibold my-3 dark:text-white'>Categories</h3>
-            {props.categories.length === 0 ? <p className='text-sm font-semibold'>No categories added yet</p>:props.categories.map((cat, index) => {
+            {props.categories.length === 0 ? <p className='text-sm font-semibold dark:text-white'>No categories added yet</p>:props.categories.map((cat, index) => {
                 return (
                     <div key={index} className={`catslot catslot_${index} flex justify-between align-middle items-center gap-2`}>
                         <div className={`color w-5 h-4 rounded-sm`} style={{ backgroundColor: colors[index]}}></div>

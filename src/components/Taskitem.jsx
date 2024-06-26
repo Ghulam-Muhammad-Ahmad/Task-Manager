@@ -48,17 +48,17 @@ export default function TaskItem(props) {
             </div>
             {
                 (props.url !== undefined && props.url !== "") ? (
-                    <a href={props.url} className="body pb-2 flex gap-2" target='_blank'>
+                    <a href={props.url} className="body pb-2 flex gap-2 hover:text-yellow-500" target='_blank'>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" />
                         </svg>
-                        {props.url}
+                        Link
                     </a>
                 ) : null
             }
 
 
-            <div className="status flex gap-1">
+            <div className="status flex justify-center items-center text-nowrap gap-1">
                 <div className="stat p-2 text-white rounded-md font-medium capitalize bg-[#3763d2]">{props.currentDate}</div>
                 <div className={`stat p-2 rounded-md text-white font-medium capitalize ${props.status === 'completed' ? 'bg-green-500' :
                     props.status === 'pending' ? 'bg-yellow-500' :

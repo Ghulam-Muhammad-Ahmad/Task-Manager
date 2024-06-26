@@ -25,7 +25,7 @@ export default function Addtasks(props) {
                     }
                 </select>
                 <select name="task_status" id="task_status" value={props.taskStatus} placeholder="Select Status" className="dark:text-white bg-transparent border border-2 border-gray-200 rounded-md p-2 w-full md:w-2/5" onChange={(e) => props.settaskStatus(e.target.value)}>
-                    <option value=""  className='dark:text-black'>Select Status</option>
+                    <option value="" className='dark:text-black'>Select Status</option>
                     <option value="pending" className='dark:text-black'>Pending</option>
                     <option value="completed" className='dark:text-black'>Completed</option>
                     <option value="blocked" className='dark:text-black'>Blocked</option>
@@ -51,33 +51,33 @@ export default function Addtasks(props) {
                         {props.taskerror}
                     </span>
                     <button
-                       onClick={() => {
-                        const allFieldsFilled = props.title && props.taskdesc && props.taskCat && props.taskStatus;
-                    
-                        if (!allFieldsFilled) {
-                            props.settaskerror("Please fill all the fields");
-                            return;
-                        }
-                    
-                        if ((props.titleurl && !props.isValidUrl(props.titleurl))) {
-                            props.settaskerror("Please provide a valid URL");
-                            return;
-                        }
-                    
-                        if (props.taskstate) {
-                            props.updateTask(props.title, props.updateid, props.taskdesc, props.taskCat, props.taskStatus, props.titleurl);
-                        } else {
-                            props.addTask(props.title, props.taskdesc, props.taskCat, props.taskStatus, props.titleurl);
-                        }
-                    
-                        props.settitle("");
-                                    props.settaskdesc("");
-                                    props.settaskCat("");
-                                    props.settaskStatus("");
-                                    props.settaskerror("")
-                                    props.settitleurl("");
-                    }}
-                    
+                        onClick={() => {
+                            const allFieldsFilled = props.title && props.taskdesc && props.taskCat && props.taskStatus;
+
+                            if (!allFieldsFilled) {
+                                props.settaskerror("Please fill all the fields");
+                                return;
+                            }
+
+                            if ((props.titleurl && !props.isValidUrl(props.titleurl))) {
+                                props.settaskerror("Please provide a valid URL");
+                                return;
+                            }
+
+                            if (props.taskstate) {
+                                props.updateTask(props.updateid,props.title, props.taskdesc, props.taskCat, props.taskStatus, props.titleurl);
+                            } else {
+                                props.addTask(props.title, props.taskdesc, props.taskCat, props.taskStatus, props.titleurl);
+                            }
+
+                            props.settitle("");
+                            props.settaskdesc("");
+                            props.settaskCat("");
+                            props.settaskStatus("");
+                            props.settaskerror("")
+                            props.settitleurl("");
+                        }}
+
                         type='button'
                         className='bg-[#3763d2] dark:bg-white dark:text-black text-white border border-2 border-gray-200 rounded-md p-2 w-full md:w-2/5'
                     >
