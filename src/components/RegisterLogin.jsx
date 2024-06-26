@@ -5,7 +5,7 @@ import Login from './Login'
 const Regsiterlogin = () => {
 const [entrystate, setEntrystate] = useState(true)    
   return (
-    <div className='absolute md:flex-row flex-col justify-center items-stretch flex-wrap flex top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 md:min-w-[60vw] md:min-h-[70vh] w-full'>
+    <div className='absolute md:flex-row flex-col justify-center items-stretch flex-wrap flex top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 md:w-[60vw] md:h-[70vh] w-full'>
       <div className="left md:block hidden flex-col bg-[#F4F4F4] md:w-1/2  rounded-s-lg pt-4 pr-6 pb-4 pl-4 flex justify-center items-center">
       <div className="details pb-10 flex flex-col justify-center items-center text-center">
         <h1 className='text-[#000] text-4xl font-bold'>Amo Tasks</h1>

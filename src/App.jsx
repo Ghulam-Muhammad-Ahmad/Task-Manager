@@ -3,8 +3,7 @@ import Navbar from './components/Navbar';
 import Main from './components/Main';
 import { account, checkAndCreateDocument } from './AppwriteConfig.js';
 import { useNavigate } from 'react-router-dom';
-import dotenv from 'dotenv';
-dotenv.config();
+
 
 
 export default function App() {

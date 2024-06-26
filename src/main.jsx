@@ -5,9 +5,6 @@ import App from './App.jsx';
 import './index.css';
 import RegisterLogin from './components/RegisterLogin.jsx';
 import { account } from './AppwriteConfig.js';
-import dotenv from 'dotenv';
-dotenv.config();
-
 const CheckSession = ({ children }) => {
   const navigate = useNavigate(); // Moved inside the component
 
