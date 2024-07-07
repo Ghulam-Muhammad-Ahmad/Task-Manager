@@ -1,29 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
 export default function TaskItem(props) {
-    // const [urlTitle, setUrlTitle] = useState('');
+    const [due, setDue] = useState(false)
+    const Datenow = new Date();
+    if(Datenow > props.duedate){
 
-    // useEffect(() => {
-    //     // Instead of get-title-at-url, use fetch or any other method to get the title
-    //     async function fetchTitle() {
-    //         try {
-    //             const response = await fetch(props.url);
-    //             const text = await response.text();
-    //             const titleMatch = text.match(/<title>([^<]*)<\/title>/);
-    //             if (titleMatch) {
-    //                 setUrlTitle(titleMatch[1]);
-    //             } else {
-    //                 setUrlTitle('No title found');
-    //             }
-    //         } catch (error) {
-    //             setUrlTitle('Error fetching title');
-    //         }
-    //     }
-    //     if(props.url !== ''){
-    //         fetchTitle();
-    //     }
-    // }, [props.url]);
-
+    }
     return (
         <div className={`task max-w-min p-3 dark:text-white bg-slate-200 task_${props.id} dark:bg-gray-800 border rounded-md border-2`}>
             <div className="header flex justify-between dark:text-white items-center gap-24">
@@ -59,7 +41,10 @@ export default function TaskItem(props) {
 
 
             <div className="status flex justify-center items-center text-nowrap gap-1">
-                <div className="stat p-2 text-white rounded-md font-medium capitalize bg-[#3763d2]">{props.currentDate}</div>
+               
+                <div className="stat p-2 text-white rounded-md font-medium capitalize bg-orange-500"> Due {props.duedate}</div>
+               
+                {/* <div className="stat p-2 text-white rounded-md font-medium capitalize bg-[#3763d2]">{props.currentDate}</div> */}
                 <div className={`stat p-2 rounded-md text-white font-medium capitalize ${props.status === 'completed' ? 'bg-green-500' :
                     props.status === 'pending' ? 'bg-yellow-500' :
                         props.status === 'blocked' ? 'bg-red-500' :

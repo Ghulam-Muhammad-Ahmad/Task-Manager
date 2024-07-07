@@ -33,6 +33,7 @@ export default function Addtasks(props) {
                 <textarea name="task_desc" id='task_desc' placeholder='Enter Task Description' className='bg-transparent h-44 dark:text-white border border-2 border-gray-200 rounded-md p-2 w-full md:w-2/5' value={props.taskdesc} onChange={(e) => props.settaskdesc(e.target.value)}>
                 </textarea>
 
+                <input type="date" title='Select Due Date' onChange={(e) => props.settaskduedate(e.target.value)} id="date" className="block w-full md:w-2/5 px-4 py-2 mt-2 text-gray-700  border border-2 border-gray-200 rounded-md bg-transparent " />
 
                 <label htmlFor="task_url" className='dark:text-white bg-transparent border border-2 border-gray-200 rounded-md p-2 w-full md:w-2/5'>
                     <input type="text"
@@ -65,9 +66,9 @@ export default function Addtasks(props) {
                             }
 
                             if (props.taskstate) {
-                                props.updateTask(props.updateid,props.title, props.taskdesc, props.taskCat, props.taskStatus, props.titleurl);
+                                props.updateTask(props.updateid, props.title, props.taskdesc, props.taskCat, props.taskStatus, props.titleurl);
                             } else {
-                                props.addTask(props.title, props.taskdesc, props.taskCat, props.taskStatus, props.titleurl);
+                                props.addTask(props.title, props.taskdesc, props.taskCat, props.taskStatus, props.titleurl, props.taskduedate);
                             }
 
                             props.settitle("");
@@ -76,6 +77,7 @@ export default function Addtasks(props) {
                             props.settaskStatus("");
                             props.settaskerror("")
                             props.settitleurl("");
+                            props.settaskduedate("");
                         }}
 
                         type='button'

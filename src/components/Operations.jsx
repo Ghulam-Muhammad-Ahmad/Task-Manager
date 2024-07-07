@@ -21,6 +21,8 @@ export default function Operations(props) {
   const [taskdesc, settaskdesc] = useState('');
   const [taskerror, settaskerror] = useState('');
   const [taskStatus, settaskStatus] = useState('');
+  const [taskduedate, settaskduedate] = useState('');
+
   const [taskstate, settaskstate] = useState(false);
   const [updateid, setupdateid] = useState(null);
   const [taskNum, settaskNum] = useState(0);
@@ -52,10 +54,10 @@ export default function Operations(props) {
     }
   };
 
-  const AddTask = async (title, desc, cat, status, url) => {
+  const AddTask = async (title, desc, cat, status, url, duedate) => {
     const today = new Date();
     let currentDate = today.getFullYear() + '/' + (today.getMonth() + 1) + '/' + today.getDate();
-    const newTask = { title, desc, cat, status, url, currentDate };
+    const newTask = { title, desc, cat, status, url, duedate, currentDate };
 
     try {
       await addTask('6677c3ce000b080c49ae', '6677c4820035a3611e2e', props.userId, newTask, docId); // Replace with actual IDs
@@ -155,6 +157,8 @@ export default function Operations(props) {
           settaskCat={settaskCat}
           settaskStatus={settaskStatus}
           settaskdesc={settaskdesc}
+          taskduedate={taskduedate}
+          settaskduedate={settaskduedate}
           updateTask={updateTask}
           settaskerror={settaskerror}
           updateid={updateid}
