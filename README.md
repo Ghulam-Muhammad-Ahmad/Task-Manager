@@ -1,6 +1,6 @@
 # Task Manager App
 
-A simple task manager application that allows you to create, edit, and delete tasks organized by categories. The application stores all data in the browser's local storage, ensuring that your tasks are saved even when you refresh the page.
+A simple task manager application that allows you to create, edit, and delete tasks organized by categories. The application stores all data in Appwrite Saas, ensuring that your tasks are saved even when you refresh the page.
 
 ## Features
 
@@ -8,7 +8,7 @@ A simple task manager application that allows you to create, edit, and delete ta
 - **Add Tasks**: Create new tasks with a description, category, and current date.
 - **Edit Tasks**: Modify the details of existing tasks.
 - **Delete Tasks**: Remove tasks that are no longer needed.
-- **Local Storage**: All data is stored in the browser's local storage, so your tasks persist across sessions.
+- **Appwrite**: All data is stored in the Appwrite, so your tasks persist across sessions.
 
 ## Installation
 
@@ -48,17 +48,9 @@ A simple task manager application that allows you to create, edit, and delete ta
 1. Click the "Delete" button next to the task you want to remove.
 2. Confirm the deletion if prompted.
 
-## Local Storage
+## Appwrite
 
-All your data is stored in the browser's local storage, meaning it will persist even if you close the browser or refresh the page. To clear all data, you can use the "Clear All Data" button in the settings section of the app.
-
-## Contributing
-
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature/YourFeature`).
-3. Commit your changes (`git commit -m 'Add some feature'`).
-4. Push to the branch (`git push origin feature/YourFeature`).
-5. Open a pull request.
+All your data is stored in the Appwrite storage, meaning it will persist even if you close the browser or refresh the page. To clear all data, you can use the "Clear All Data" button in the settings section of the app.
 
 
 ## Acknowledgements
