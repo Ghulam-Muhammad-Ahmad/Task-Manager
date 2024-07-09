@@ -21,7 +21,7 @@ const Navbar = (props) => {
                     Amo Tasks
                 </a>
                 <div className="right flex ">
-                    <button onClick={handleLogout} className='py-2 px-5 rounded-md bg-[#3763d2] text-white'>Logout</button>
+                    <button onClick={handleLogout} className='py-2 px-5 rounded-md hover:bg-white hover:text-black bg-[#3763d2] text-white'>Logout</button>
                     <div className="flex flex-col justify-center ml-3">
                         <input
                             type="checkbox"

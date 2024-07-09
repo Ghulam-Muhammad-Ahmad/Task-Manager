@@ -40,9 +40,12 @@ export default function TaskItem(props) {
             }
 
 
-            <div className="status flex justify-center items-center text-nowrap gap-1">
-               
-                <div className="stat p-2 text-white rounded-md font-medium capitalize bg-orange-500"> Due {props.duedate}</div>
+            <div className="status flex justify-center items-center text-nowrap gap-1">                
+               {new Date() > new Date(props.duedate) ? 
+  <div className="stat p-2 text-white rounded-md font-medium capitalize bg-red-600">Overdue {props.duedate}</div> 
+  : 
+  <div className="stat p-2 text-white rounded-md font-medium capitalize bg-green-500">Due {props.duedate}</div>
+}
                
                 {/* <div className="stat p-2 text-white rounded-md font-medium capitalize bg-[#3763d2]">{props.currentDate}</div> */}
                 <div className={`stat p-2 rounded-md text-white font-medium capitalize ${props.status === 'completed' ? 'bg-green-500' :

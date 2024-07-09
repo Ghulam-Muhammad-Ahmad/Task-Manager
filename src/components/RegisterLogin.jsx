@@ -16,7 +16,7 @@ const Regsiterlogin = () => {
           </div>
           <img src={LoginImg} alt="Amo Tasks" />
         </div>
-        <div className="right bg-[#85aef966] border-e-2 border-t-2 border-b-2 border-[#cdcdcdde]  backdrop-blur md:w-1/2  rounded-e-lg p-4   flex flex-col justify-center items-center">
+        <div className="right bg-[#85aef966] border-s-2 md:border-s-0 rounded-s-lg md:rounded-s-none border-e-2 border-t-2 border-b-2 border-[#cdcdcdde] w-[80%] m-auto md:m-0  backdrop-blur md:w-1/2  rounded-e-lg p-4   flex flex-col justify-center items-center">
           <div className={`flex flex-col justify-center items-center ${!entrystate ? 'hidden' : ''}`}>
             <Register setEntrystate={setEntrystate} />
           </div>

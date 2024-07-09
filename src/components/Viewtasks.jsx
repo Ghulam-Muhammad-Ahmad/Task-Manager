@@ -27,7 +27,7 @@ export default function Viewtasks(props) {
                 </div>
             </div>
 
-            <div className="viewtask dark:text-white flex gap-3 justify-start align-middle flex-wrap">
+            <div className="viewtask w-full dark:text-white flex gap-3 justify-start align-middle flex-wrap">
 
             {props.tasks.flat().map((taskStr, index) => {
     const task = JSON.parse(taskStr);

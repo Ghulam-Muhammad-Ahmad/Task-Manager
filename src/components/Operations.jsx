@@ -69,16 +69,17 @@ export default function Operations(props) {
 
   const editTask = (id) => {
     settaskstate(true);
-    console.log(tasks);
+    // console.log(tasks);
     
     const editTask = JSON.parse(tasks[id]); // Parse the JSON string to get the task object
-    
+    console.log(editTask);
     settitle(editTask.title);
     settaskCat(editTask.cat);
     settaskdesc(editTask.desc);
     settaskStatus(editTask.status);
     settaskerror(editTask.error); // Assuming error is part of the task object
     settitleurl(editTask.url);
+    settaskduedate(editTask.duedate);
     setupdateid(id);
 };
 
@@ -100,10 +101,10 @@ export default function Operations(props) {
   //     console.error('Error updating task:', error);
   //   }
   // };
-  const updateTask = async (id, title, desc, cat, status, url) => {
+  const updateTask = async (id, title, desc, cat, status, url, duedate) => {
     const today = new Date();
     let currentDate = today.getFullYear() + '/' + (today.getMonth() + 1) + '/' + today.getDate();
-    const updatedTask = { title, desc, cat, status, url, currentDate };
+    const updatedTask = { title, desc, cat, status, url, currentDate, duedate };
 
     try {
       const databaseId = '6677c3ce000b080c49ae'; // Replace with actual database ID
@@ -116,6 +117,7 @@ export default function Operations(props) {
       settaskCat('');
       settaskStatus('');
       settitleurl('');
+      settaskduedate('');
       setupdateid(null);
       settaskstate(false);
     } catch (error) {
